@@ -28,6 +28,9 @@ LIBS:= `pkg-config --libs $(PKGS)`
 LIBS+= -lm \
        -Wl,-rpath,$(LIB_INSTALL_DIR)
 
+LIBS+= -L$(LIB_INSTALL_DIR) -lnvdsgst_meta -lnvds_meta \
+       -lgstrtspserver-1.0 -Wl,-rpath,$(LIB_INSTALL_DIR)
+
 all: $(APP)
 
 %.o: %.cpp $(INCS) Makefile
